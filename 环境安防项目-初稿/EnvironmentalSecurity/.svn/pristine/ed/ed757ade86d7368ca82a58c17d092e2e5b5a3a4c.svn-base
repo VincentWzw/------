@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="EnvironmentalSecurity.UserControlHistoryMessage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EnvironmentalSecurity"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="800">
+    <Grid>
+        <TabControl  x:Name="tblHistory"  >
+            <TabItem Header="数据记录" Name="tblData" >
+            <local:UserControlRefer></local:UserControlRefer>
+            
+            </TabItem>
+            <TabItem Header="操作记录" Name="tblMessage">
+           <local:UserControlMessage></local:UserControlMessage>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
