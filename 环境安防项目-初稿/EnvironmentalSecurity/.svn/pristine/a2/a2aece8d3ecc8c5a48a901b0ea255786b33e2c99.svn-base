@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvironmentalSecurity", "EnvironmentalSecurity\EnvironmentalSecurity.csproj", "{EFBA9C86-8255-49AA-82ED-E5F07241A681}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01基础架构", "01基础架构", "{635F1F14-519B-4A1D-9DD6-86FD01FE924B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02业务架构", "02业务架构", "{C6919FC5-E076-4B2E-8078-88EE3F8201D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03应用程序", "03应用程序", "{8DDE6FFD-9D6A-4804-BC3A-01AA4759B69C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Domain", "ES.Domain\ES.Domain.csproj", "{AF1F5ACC-DE48-4BD2-9EC3-337B1A1C1D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Utility", "ES.Utility\ES.Utility.csproj", "{FACC2194-0FE0-49F2-A0B9-179CAE9DE6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KV_WSN", "KV_WSN\KV_WSN.csproj", "{F77E2AE0-A2CA-4B9C-9702-128557EC91A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ES.Business", "ES.Business\ES.Business.csproj", "{DE06C3F8-4725-4B7F-9787-C83C9F232C03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFBA9C86-8255-49AA-82ED-E5F07241A681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFBA9C86-8255-49AA-82ED-E5F07241A681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFBA9C86-8255-49AA-82ED-E5F07241A681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFBA9C86-8255-49AA-82ED-E5F07241A681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1F5ACC-DE48-4BD2-9EC3-337B1A1C1D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1F5ACC-DE48-4BD2-9EC3-337B1A1C1D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1F5ACC-DE48-4BD2-9EC3-337B1A1C1D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1F5ACC-DE48-4BD2-9EC3-337B1A1C1D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FACC2194-0FE0-49F2-A0B9-179CAE9DE6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FACC2194-0FE0-49F2-A0B9-179CAE9DE6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FACC2194-0FE0-49F2-A0B9-179CAE9DE6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FACC2194-0FE0-49F2-A0B9-179CAE9DE6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F77E2AE0-A2CA-4B9C-9702-128557EC91A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F77E2AE0-A2CA-4B9C-9702-128557EC91A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F77E2AE0-A2CA-4B9C-9702-128557EC91A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F77E2AE0-A2CA-4B9C-9702-128557EC91A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE06C3F8-4725-4B7F-9787-C83C9F232C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE06C3F8-4725-4B7F-9787-C83C9F232C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE06C3F8-4725-4B7F-9787-C83C9F232C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE06C3F8-4725-4B7F-9787-C83C9F232C03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EFBA9C86-8255-49AA-82ED-E5F07241A681} = {8DDE6FFD-9D6A-4804-BC3A-01AA4759B69C}
+		{AF1F5ACC-DE48-4BD2-9EC3-337B1A1C1D61} = {635F1F14-519B-4A1D-9DD6-86FD01FE924B}
+		{FACC2194-0FE0-49F2-A0B9-179CAE9DE6A7} = {635F1F14-519B-4A1D-9DD6-86FD01FE924B}
+		{F77E2AE0-A2CA-4B9C-9702-128557EC91A6} = {C6919FC5-E076-4B2E-8078-88EE3F8201D7}
+		{DE06C3F8-4725-4B7F-9787-C83C9F232C03} = {C6919FC5-E076-4B2E-8078-88EE3F8201D7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {A3C1A968-55B9-4FC8-8FDB-DCC3692659CE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ES_DBModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityType Name="Coordinator">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="COM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PanID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sensor" Relationship="ES_DBModel.CoordinatorSensor" FromRole="Coordinator" ToRole="Sensor" />
+  </EntityType>
+  <EntityType Name="Sensor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="Byte" />
+    <NavigationProperty Name="Coordinator" Relationship="ES_DBModel.CoordinatorSensor" FromRole="Sensor" ToRole="Coordinator" />
+    <Property Name="CoordinatorID" Type="Int32" Nullable="true" />
+    <NavigationProperty Name="SensorData" Relationship="ES_DBModel.SensorSensorData" FromRole="Sensor" ToRole="SensorData" />
+    <Property Name="Type" Nullable="false" Type="Byte" />
+  </EntityType>
+  <EntityType Name="SensorData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Data" Type="String" />
+    <Property Name="Time" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sensor" Relationship="ES_DBModel.SensorSensorData" FromRole="SensorData" ToRole="Sensor" />
+    <Property Name="SensorID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ES_DB" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="Coordinator" EntityType="Self.Coordinator" />
+    <EntitySet Name="Sensor" EntityType="Self.Sensor" />
+    <EntitySet Name="SensorData" EntityType="ES_DBModel.SensorData" />
+    <AssociationSet Name="CoordinatorSensor" Association="ES_DBModel.CoordinatorSensor">
+      <End Role="Coordinator" EntitySet="Coordinator" />
+      <End Role="Sensor" EntitySet="Sensor" />
+    </AssociationSet>
+    <AssociationSet Name="SensorSensorData" Association="ES_DBModel.SensorSensorData">
+      <End Role="Sensor" EntitySet="Sensor" />
+      <End Role="SensorData" EntitySet="SensorData" />
+    </AssociationSet>
+    <EntitySet Name="MessageSet" EntityType="ES_DBModel.Message" />
+  </EntityContainer>
+  <Association Name="CoordinatorSensor">
+    <End Type="ES_DBModel.Coordinator" Role="Coordinator" Multiplicity="0..1" />
+    <End Type="ES_DBModel.Sensor" Role="Sensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coordinator">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sensor">
+        <PropertyRef Name="CoordinatorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SensorSensorData">
+    <End Type="ES_DBModel.Sensor" Role="Sensor" Multiplicity="1" />
+    <End Type="ES_DBModel.SensorData" Role="SensorData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SensorData">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Time" Type="DateTime" Nullable="false" />
+    <Property Name="Messages" Type="String" Nullable="false" />
+  </EntityType>
+</Schema>
