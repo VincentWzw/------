@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ES_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ES_DBModelStoreContainer">
+    <EntitySet Name="Coordinator" EntityType="ES_DBModel.Store.Coordinator" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="Sensor" EntityType="ES_DBModel.Store.Sensor" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="SensorData" EntityType="ES_DBModel.Store.SensorData" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="MessageSet" EntityType="ES_DBModel.Store.MessageSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="CoordinatorSensor" Association="ES_DBModel.Store.CoordinatorSensor">
+      <End Role="Coordinator" EntitySet="Coordinator" />
+      <End Role="Sensor" EntitySet="Sensor" />
+    </AssociationSet>
+    <AssociationSet Name="SensorSensorData" Association="ES_DBModel.Store.SensorSensorData">
+      <End Role="Sensor" EntitySet="Sensor" />
+      <End Role="SensorData" EntitySet="SensorData" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Coordinator">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="COM" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="PanID" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sensor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Address" Type="tinyint" Nullable="true" />
+    <Property Name="CoordinatorID" Type="int" Nullable="true" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SensorData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Time" Type="datetime" Nullable="true" />
+    <Property Name="SensorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MessageSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="Messages" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="CoordinatorSensor">
+    <End Role="Coordinator" Type="ES_DBModel.Store.Coordinator" Multiplicity="0..1" />
+    <End Role="Sensor" Type="ES_DBModel.Store.Sensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coordinator">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sensor">
+        <PropertyRef Name="CoordinatorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SensorSensorData">
+    <End Role="Sensor" Type="ES_DBModel.Store.Sensor" Multiplicity="1" />
+    <End Role="SensorData" Type="ES_DBModel.Store.SensorData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensor">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SensorData">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

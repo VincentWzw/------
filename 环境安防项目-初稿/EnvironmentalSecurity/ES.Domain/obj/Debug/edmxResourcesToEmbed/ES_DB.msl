@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ES_DBModelStoreContainer" CdmEntityContainer="ES_DB">
+    <EntitySetMapping Name="Coordinator">
+      <EntityTypeMapping TypeName="IsTypeOf(ES_DBModel.Coordinator)">
+        <MappingFragment StoreEntitySet="Coordinator">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="COM" ColumnName="COM" />
+          <ScalarProperty Name="PanID" ColumnName="PanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sensor">
+      <EntityTypeMapping TypeName="IsTypeOf(ES_DBModel.Sensor)">
+        <MappingFragment StoreEntitySet="Sensor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CoordinatorID" ColumnName="CoordinatorID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorData">
+      <EntityTypeMapping TypeName="IsTypeOf(ES_DBModel.SensorData)">
+        <MappingFragment StoreEntitySet="SensorData">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ES_DBModel.Message)">
+        <MappingFragment StoreEntitySet="MessageSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Messages" ColumnName="Messages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
